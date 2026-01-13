@@ -1,0 +1,42 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install ruff pytest
+          pip install -r tools/host/requirements.txt
+      - name: Lint Python with ruff
+        run: |
+          ruff tools/host
+      - name: Run unit tests
+        run: |
+          pytest tools/host/test_protocol.py
+
+  firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up ESP-IDF
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v5.1
+      - name: Build firmware
+        run: |
+          cd firmware
+          idf.py set-target esp32
+          idf.py build

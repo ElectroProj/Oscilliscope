@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESP32 Mini Scope</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>ESP32 Mini Scope</h1>
+    <div id="controls">
+      <div>
+        <label for="runStop">Run/Stop</label>
+        <button id="runStop">Stop</button>
+      </div>
+      <div>
+        <label for="triggerMode">Trigger</label>
+        <select id="triggerMode">
+          <option value="auto">Auto</option>
+          <option value="normal">Normal</option>
+          <option value="single">Single</option>
+        </select>
+      </div>
+      <div>
+        <label for="triggerLevel">Trig lvl</label>
+        <input id="triggerLevel" type="range" min="0" max="4095" value="2048" />
+      </div>
+      <div>
+        <label for="voltsDiv">Volts/div</label>
+        <select id="voltsDiv">
+          <option value="0.1">0.1 V</option>
+          <option value="0.2">0.2 V</option>
+          <option value="0.5">0.5 V</option>
+          <option value="1">1 V</option>
+          <option value="2">2 V</option>
+        </select>
+      </div>
+      <div>
+        <label for="timeScale">Time scale</label>
+        <select id="timeScale">
+          <option value="1">1×</option>
+          <option value="2">2×</option>
+          <option value="5">5×</option>
+          <option value="10">10×</option>
+        </select>
+      </div>
+    </div>
+    <canvas id="waveform" width="800" height="300"></canvas>
+    <div id="stats">Not connected</div>
+    <script src="app.js"></script>
+  </body>
+</html>

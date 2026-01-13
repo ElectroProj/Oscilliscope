@@ -1,0 +1,24 @@
+# Ignore ESP‑IDF build artifacts
+build/
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# Python virtual environments and caches
+tools/host/.venv/
+__pycache__/
+*.pyc
+
+# Node modules (if used in the future)
+node_modules/
+dist/
+
+# Editor and OS junk
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local environment variables
+.env

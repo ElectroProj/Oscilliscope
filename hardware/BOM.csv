@@ -1,0 +1,13 @@
+Ref,Qty,Value,Part,Notes
+R1,1,1 kΩ,0603/0805,Series input protection resistor
+D1,1,5 V TVS,SMF5.0A or similar,Transient voltage suppressor to clamp input spikes (optional but recommended)
+SW1,1,SPDT slide,Generic,Selects between 1× and 10× attenuation paths
+R2,1,9.1 kΩ,1 % metal film,Upper leg of 10× divider
+R3,1,1 kΩ,1 % metal film,Lower leg of 10× divider
+C1,1,100 nF,X7R 0603,AC coupling capacitor
+R4,1,100 kΩ,1 % metal film,Bias resistor to 3.3 V
+R5,1,100 kΩ,1 % metal film,Bias resistor to ground
+U1,1,TLV9002 or MCP6002,SOIC‑8,Dual rail‑to‑rail op‑amp; only one channel is used here
+C2,1,100 nF,X7R 0603,Op‑amp supply decoupling
+Rf,1,100 Ω,1 % metal film,Series resistor for RC filter and ADC source isolation
+Cf,1,1 nF,X7R 0603,RC low‑pass filter capacitor

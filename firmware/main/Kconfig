@@ -1,0 +1,34 @@
+menu "mini scope"
+
+config MINI_SCOPE_SAMPLE_RATE
+    int "Sample rate (Hz)"
+    default 200000
+    help
+        Sampling rate in samples per second.  The I²S driver uses this
+        to configure the ADC sampling clock.  Higher rates reduce
+        available UART throughput and increase noise.
+
+config MINI_SCOPE_FRAME_SAMPLES
+    int "Frame size (samples)"
+    default 1024
+    help
+        Number of samples per frame.  Determines how many samples
+        are read from I²S before a frame is sent.  Larger frames
+        increase latency but reduce protocol overhead.
+
+config MINI_SCOPE_ADC_GAIN
+    float "ADC gain correction"
+    default 1.0
+    help
+        Multiplicative correction applied to raw ADC counts before
+        they are transmitted.  Adjust this to calibrate front‑end
+        attenuation or op‑amp gain.
+
+config MINI_SCOPE_ADC_OFFSET
+    int "ADC offset correction (counts)"
+    default 0
+    help
+        Additive correction applied to raw ADC counts.  Useful to
+        compensate for DC offsets from the bias network or op‑amp.
+
+endmenu
