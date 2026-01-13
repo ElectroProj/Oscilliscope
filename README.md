@@ -12,7 +12,7 @@ This repository contains three main components:
 
 ## Circuit
 
-![Analog front-end schematic](screenshots/circuit-front-end.png)
+![Analog front-end schematic](hardware/image.png)
 
 ## Quick start
 
